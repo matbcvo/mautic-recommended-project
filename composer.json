@@ -59,7 +59,22 @@
     "mautic/theme-sparse": "5.2.0",
     "mautic/theme-sunday": "5.2.0",
     "mautic/theme-vibrant": "5.2.0",
-    "mautic/theme-trulypersonal": "5.2.0"
+    "mautic/theme-trulypersonal": "5.2.0",
+    "mautic/theme-1-2-1-2-column": "5.2.0",
+    "mautic/theme-1-2-1-column": "5.2.0",
+    "mautic/theme-1-2-column": "5.2.0",
+    "mautic/theme-1-3-1-3-column": "5.2.0",
+    "mautic/theme-1-3-column": "5.2.0",
+    "mautic/theme-attract": "5.2.0",
+    "mautic/theme-connect-through-content": "5.2.0",
+    "mautic/theme-creative": "5.2.0",
+    "mautic/theme-educate": "5.2.0",
+    "mautic/theme-gallery": "5.2.0",
+    "mautic/theme-make-announcement": "5.2.0",
+    "mautic/theme-showcase": "5.2.0",
+    "mautic/theme-simple-text": "5.2.0",
+    "mautic/theme-survey": "5.2.0",
+    "mautic/theme-welcome": "5.2.0"
   },
   "repositories": [
     {
@@ -82,7 +97,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
-    "sort-packages": true,
+    "sort-packages": true ,
     "allow-plugins": {
       "composer/installers": true,
       "symfony/flex": true,
