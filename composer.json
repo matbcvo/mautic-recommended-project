@@ -124,7 +124,7 @@
     ],
     "npm-ci": "npm ci --prefer-offline --no-audit",
     "npx-patch-package": "npx patch-package",
-    "generate-assets": "php -r \"echo 'Initial memory usage: ' . memory_get_usage(true) / 1024 / 1024 . ' MB\\n';\" && /usr/bin/time -v php -dmemory_limit=-1 bin/console mautic:assets:generate && php -r \"echo 'Peak memory usage: ' . memory_get_peak_usage(true) / 1024 / 1024 . ' MB\\n';\""
+    "generate-assets": "php -r \"echo 'Initial memory usage: ' . memory_get_usage(true) / 1024 / 1024 . ' MB\\n';\" && php -dmemory_limit=-1 bin/console mautic:assets:generate && php -r \"echo 'Peak memory usage: ' . memory_get_peak_usage(true) / 1024 / 1024 . ' MB\\n';\""
   },
   "extra": {
     "mautic-scaffold": {
