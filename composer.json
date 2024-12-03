@@ -124,7 +124,7 @@
     ],
     "npm-ci": "npm ci --prefer-offline --no-audit",
     "npx-patch-package": "npx patch-package",
-    "generate-assets": "php -dmemory_limit=256M bin/console mautic:assets:generate"
+    "generate-assets": "php -dmemory_limit=128M bin/console mautic:assets:generate"
   },
   "extra": {
     "mautic-scaffold": {
