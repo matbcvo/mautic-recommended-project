@@ -5,7 +5,7 @@ dependencies with [Composer](https://getcomposer.org/).
 
 ## Usage
 
-First you need to [install composer 2](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
+First you need to install [Composer v2](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
 > Note: The instructions below refer to the [global composer installation](https://getcomposer.org/doc/00-intro.md#globally).
 You might need to replace `composer` with `php composer.phar` (or similar)
@@ -14,7 +14,7 @@ for your setup.
 After that you can create the project:
 
 ```
-composer create-project mautic/recommended-project:^5.0 some-dir --no-interaction
+composer create-project mautic/recommended-project:^6.0 some-dir --no-interaction
 ```
 
 With `composer require ...` you can download new dependencies to your installation.
@@ -56,9 +56,9 @@ Follow the steps below to update your core files.
 2. Run `git diff` to determine if any of the scaffolding files have changed.
    Review the files for any changes and restore any customizations to
   `.htaccess` or others.
-1. Commit everything all together in a single commit, so `public/` will remain in
+3. Commit everything all together in a single commit, so `public/` will remain in
    sync with the `core` when checking out branches or running `git bisect`.
-1. In the event that there are non-trivial conflicts in step 2, you may wish
+4. In the event that there are non-trivial conflicts in step 2, you may wish
    to perform these steps on a branch, and use `git merge` to combine the
    updated core files with your customized files. This facilitates the use
    of a [three-way merge tool such as kdiff3](http://www.gitshah.com/2010/12/how-to-setup-kdiff-as-diff-tool-for-git.html). This setup is not necessary if your changes are simple;
@@ -110,43 +110,44 @@ section of composer.json:
 }
 ```
 
-### How do I specify a PHP version ?
+### How do I specify a PHP version?
 
-This project supports PHP 7.4 as minimum version, however it's possible that a `composer update` will upgrade some package that will then require PHP 7+ or 8+.
+This project supports PHP 8.1 as minimum version, however it's possible that a `composer update` will upgrade some package that will then require PHP 7+ or 8+.
 
 To prevent this you can add this code to specify the PHP version you want to use in the `config` section of `composer.json`:
 ```json
 "config": {
     "sort-packages": true,
     "platform": {
-        "php": "7.4"
+        "php": "8.1"
     }
 },
 ```
 
-### How do I use another folder than `public` as web root
+### How do I use another directory than `public` as web root
 
-By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `public/` folder.  
-It is possible to change this folder to your own needs.
+By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `public/` directory.  
+It is possible to change this directory to your own needs.
 
-In following examples, we will change `public/` into `public_html/`.
+In following examples, we will change `public/` into `docroot/`.
 
 ##### New installations
 
-* Run the `create-project` command without installing  
+* Run the `create-project` command without installing
   ```bash
-  composer create-project mautic/recommended-project:^4.0 some-dir --no-interaction --no-install
+  composer create-project mautic/recommended-project:^6.0 some-dir --no-interaction --no-install
   ```
-* Do a find and replace in the `composer.json` file to change `public/` into `public_html/`.
+* Do a find and replace in the `composer.json` file to change `public/` into `docroot/`.
 * Review the changes in the `composer.json` file to ensure there are no unintentional replacements.
 * Run `composer install` to install all dependencies in the correct location.
 
 ##### Existing installations
 
-* move the `public/` to `public_html/`
+* Move the `public/` to `docroot/`
   ```bash
-  mv public public_html
+  mv public docroot
   ```
-* Do a find and replace in the `composer.json` file to change `public/` into `public_html/`.
-* review the changes in the `composer.json` file to ensure there are no unintentional replacements.
-* run `composer update --lock` to ensure the autoloader is aware of the changed folder.
+* Do a find and replace in the `composer.json` file to change `public/` into `docroot/`.
+* Review the changes in the `composer.json` file to ensure there are no unintentional replacements.
+* Run `composer update --lock` to ensure the autoloader is aware of the changed directory.
+* Ensure that config parameters related to the `media` directory in the `config/local.php` file point to the correct directory (`docroot/media` instead of `public/media`)
