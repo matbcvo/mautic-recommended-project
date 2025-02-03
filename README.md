@@ -112,12 +112,11 @@ section of composer.json:
 
 ### How do I specify a PHP version?
 
-This project supports PHP 8.1 as minimum version, however it's possible that a `composer update` will upgrade some package that will then require PHP 7+ or 8+.
+This project supports PHP 8.1 as the minimum version (see [Mautic requirements](https://mautic.org/mautic-requirements/)). However, running a `composer update` may upgrade some packages that require a higher PHP version.
 
-To prevent this you can add this code to specify the PHP version you want to use in the `config` section of `composer.json`:
+To prevent this, you can specify the PHP version in the `config` section of `composer.json` by adding the following code:
 ```json
 "config": {
-    "sort-packages": true,
     "platform": {
         "php": "8.1"
     }
