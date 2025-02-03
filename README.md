@@ -123,6 +123,11 @@ To prevent this, you can specify the PHP version in the `config` section of `com
 },
 ```
 
+Alternatively, you can run the following command:
+```bash
+composer config platform.php 8.1
+```
+
 ### How do I use another directory than `public` as web root
 
 By default the composer.json file is configures to put all Mautic core, plugin and theme files in the `public/` directory.  
